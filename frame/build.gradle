@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile(deps.appTestDependencies.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    api 'com.github.bumptech.glide:compiler:4.0.0'
+    api deps.appDependencies.design
+    api deps.appDependencies.supportv7
+    api deps.appDependencies.supportv4
+    api deps.appDependencies.constraint
+    api deps.appDependencies.recyclerview
+    testImplementation deps.appTestDependencies.junit4
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    /**
+     * 网络库
+     */
+//    api deps.appDependencies.okhttp
+    api deps.appDependencies.retrofit
+    api deps.appDependencies.convertergson
+    api deps.appDependencies.converterscalars
+    api deps.appDependencies.adapterrxjava2
+    /**
+     * 响应式编程库
+     */
+    api deps.appDependencies.rxandroid
+//    api deps.appDependencies.rxjava
+    /**
+     * 权限处理库
+     */
+    api deps.appDependencies.rxpermissions
+    /**
+     * 图片加载处理库
+     */
+    api deps.appDependencies.glide
+    annotationProcessor deps.appDependencies.glideannotation
+}
