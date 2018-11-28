@@ -65,4 +65,5 @@ dependencies {
      */
     api deps.appDependencies.glide
     annotationProcessor deps.appDependencies.glideannotation
+
 }

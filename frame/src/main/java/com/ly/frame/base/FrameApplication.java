@@ -39,6 +39,11 @@ public class FrameApplication extends Application {
         return sInstance;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        registerActivityLifecycleCallbacks(new MyActivityLifeCallBackImpl());
+    }
 
     public void initFrameSetting(@NonNull Class<? extends FrameConfig> pConfig, @NonNull boolean isDebug){
         // 创建配置Info
@@ -114,5 +119,14 @@ public class FrameApplication extends Application {
                 Logger.e("crashException:" + pE1.getMessage());
             }
         }
+    }
+
+    @CallSuper
+    @Override
+    public void onTerminate() {
+        // 程序终止的时候执行
+        super.onTerminate();
+        // 终止网络监听
+        Monitor.release();
     }
 }

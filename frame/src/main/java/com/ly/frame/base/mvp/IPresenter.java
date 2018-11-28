@@ -2,6 +2,8 @@ package com.ly.frame.base.mvp;
 
 import com.ly.frame.http.BaseResponse;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * @Author: lk
  * @Date: 2018/11/23
@@ -30,4 +32,7 @@ public interface IPresenter<D> {
      */
     void onError(int code,String msg);
 
+    void unSubscribe();
+
+    Disposable subscribe(Disposable disposable);
 }

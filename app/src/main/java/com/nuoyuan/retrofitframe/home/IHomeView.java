@@ -9,7 +9,7 @@ import com.ly.frame.base.mvp.IView;
  */
 public interface IHomeView extends IView {
 
-    void getResponseSuc(TranslationResponse response);
+    void getResponseSuc(MeiTuResponse response);
 
     void getErrorMsg(int code,String string);
 }

@@ -4,27 +4,30 @@ import io.reactivex.observers.DisposableObserver;
 
 /**
  * @Author: lk
- * @Date: 2018/11/23
+ * @Date: 2018/11/28
  * @Description:
  */
-public class DisposableObserverCallBack<T> extends DisposableObserver<T> {
-    @Override
-    protected void onStart() {
-        super.onStart();
+public abstract class DisposableObserverCallBack<T> extends DisposableObserver<T> {
+
+    public DisposableObserverCallBack() {
     }
 
     @Override
     public void onNext(T t) {
-
+        onSuccess(t);
     }
 
     @Override
     public void onError(Throwable e) {
-
+        onFail(e.getMessage());
     }
 
     @Override
     public void onComplete() {
 
     }
+
+    public abstract void onSuccess(T t);
+
+    public abstract void onFail(String errorMsg);
 }

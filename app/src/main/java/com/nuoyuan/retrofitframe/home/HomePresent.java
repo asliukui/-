@@ -7,7 +7,7 @@ import com.ly.frame.base.mvp.BasePresenter;
  * @Date: 2018/11/23
  * @Description:
  */
-public class HomePresent extends BasePresenter<IHomeView,TranslationResponse> {
+public class HomePresent extends BasePresenter<IHomeView,MeiTuResponse> {
 
 
     private final HomeModel homeModel;
@@ -19,13 +19,13 @@ public class HomePresent extends BasePresenter<IHomeView,TranslationResponse> {
 
     @Override
     public void requestData() {
-        mView.showLoading();
-        homeModel.requestData();
+        showLoading();
+        homeModel.requestData("1");
     }
 
     @Override
-    public void onSuccess(TranslationResponse data) {
-        mView.hideLoading();
+    public void onSuccess(MeiTuResponse data) {
+        hideLoading();
         mView.getResponseSuc(data);
     }
 

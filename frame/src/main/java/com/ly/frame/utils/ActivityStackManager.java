@@ -154,7 +154,7 @@ public enum ActivityStackManager {
     /**
      * 添加一个Activity
      */
-    protected synchronized void addActivity(@NonNull Activity activity) {
+    public synchronized void addActivity(@NonNull Activity activity) {
         if (activity != null) {
             activityStack.add(activity);
         }
@@ -163,7 +163,7 @@ public enum ActivityStackManager {
     /**
      * 移除一个Activity
      */
-    protected synchronized void removeActivity(@NonNull Activity activity) {
+    public synchronized void removeActivity(@NonNull Activity activity) {
         if (activity != null) {
             activityStack.remove(activity);
         }

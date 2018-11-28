@@ -1,10 +1,11 @@
 package com.nuoyuan.retrofitframe.http;
 
-import com.nuoyuan.retrofitframe.home.TranslationResponse;
+import com.nuoyuan.retrofitframe.home.MeiTuResponse;
+import com.nuoyuan.retrofitframe.satin.SatinResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * @Author: lk
@@ -24,14 +25,26 @@ public interface ApiService {
 //    @POST() 标示该方法为post请求
 //    @GET() 标示该方法为get请求
 
-//    String BASE_URL ="http://www.izaodao.com/Api/";
-    String BASE_URL ="http://fanyi.youdao.com/";
-    @POST("AppFiftyToneGraph/videoLink")
-    void postData();
+    String BASE_URL ="https://www.apiopen.top/";
 
     /**
-     * get方法，有道基础url
+     * 美图
      */
-    @GET("openapi.do?keyfrom=Yanzhikai&key=2032414398&type=data&doctype=json&version=1.1&q=car")
-    Observable<TranslationResponse> getYDaoData();
+    @GET("meituApi")
+    Observable<MeiTuResponse> getPic(@Query("page") String page);
+
+    /**
+     * https://www.apiopen.top/satinApi?type=1&page=1
+     * type=1 : 全部
+     * type=2 : 文字
+     * type=3 : 图片
+     * type=4 : 视频
+     * page=1:页码
+     * type=41 : 视频
+     * type=10 : 图片
+     * type=29 : 段子
+     * type=31 : 声音
+     */
+    @GET("satinApi")
+    Observable<SatinResponse> getSatin(@Query("type") String type,@Query("page") String page);
 }

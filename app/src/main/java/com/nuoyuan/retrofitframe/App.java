@@ -1,9 +1,7 @@
 package com.nuoyuan.retrofitframe;
 
 import com.ly.frame.base.FrameApplication;
-import com.ly.frame.http.HttpManager;
 import com.nuoyuan.retrofitframe.config.CustemConfig;
-import com.nuoyuan.retrofitframe.http.ApiService;
 
 /**
  * @Author: lk

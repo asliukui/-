@@ -1,12 +1,14 @@
 package com.nuoyuan.retrofitframe;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.ly.frame.base.BaseActivity;
 import com.nuoyuan.retrofitframe.home.HomePresent;
 import com.nuoyuan.retrofitframe.home.IHomeView;
-import com.nuoyuan.retrofitframe.home.TranslationResponse;
+import com.nuoyuan.retrofitframe.home.MeiTuResponse;
+import com.nuoyuan.retrofitframe.satin.SatinActivity;
 
 
 public class MainActivity extends BaseActivity<HomePresent> implements IHomeView {
@@ -23,7 +25,7 @@ public class MainActivity extends BaseActivity<HomePresent> implements IHomeView
         mTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.requestData();
+                startActivity(new Intent(mContext,SatinActivity.class));
             }
         });
     }
@@ -44,7 +46,7 @@ public class MainActivity extends BaseActivity<HomePresent> implements IHomeView
     }
 
     @Override
-    public void getResponseSuc(TranslationResponse response) {
+    public void getResponseSuc(MeiTuResponse response) {
         mTv.setText(response.toString());
     }
 
