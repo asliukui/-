@@ -4,8 +4,8 @@ android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "com.nuoyuan.retrofitframe"
-        minSdkVersion 15
+        applicationId "com.nuoyuan.min_sdk"
+        minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"

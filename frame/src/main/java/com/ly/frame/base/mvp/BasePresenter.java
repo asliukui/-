@@ -1,10 +1,7 @@
 package com.ly.frame.base.mvp;
 
-import android.widget.ProgressBar;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.DisposableObserver;
 
 /**
  * @Author: lk
@@ -24,8 +21,8 @@ public abstract class BasePresenter<V extends IView, D> implements IPresenter<D>
     }
 
     public void dettach() {
-        unSubscribe();
         mView = null;
+        unSubscribe();
     }
 
     public void showLoading(final boolean... setting) {
